@@ -1,0 +1,94 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		DE435E781BD5E033002A1F8F /* Model.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Model.js; sourceTree = "<group>"; };
+		DE435E7A1BD5F24C002A1F8F /* Texture.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Texture.js; sourceTree = "<group>"; };
+		DE4B0A7F1BC4B7830068B488 /* BufferObject.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = BufferObject.js; sourceTree = "<group>"; };
+		DE4B0A821BC4B7830068B488 /* glTest.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = glTest.html; sourceTree = "<group>"; };
+		DE4B0A831BC4B7830068B488 /* ModelLoader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ModelLoader.js; sourceTree = "<group>"; };
+		DE4B0A851BC4B7830068B488 /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
+		DE4B0A861BC4B7830068B488 /* Shader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Shader.js; sourceTree = "<group>"; };
+		DE4B0A871BC4B8E90068B488 /* model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = model; sourceTree = "<group>"; };
+		DE4B0A891BC4BA0A0068B488 /* GameMain.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GameMain.js; sourceTree = "<group>"; };
+		DE84945B1BCC9133004A1650 /* Mat4.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Mat4.js; sourceTree = "<group>"; };
+		DE84945E1BCD597F004A1650 /* Camera.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Camera.js; sourceTree = "<group>"; };
+		DE84945F1BCDE6A8004A1650 /* Vec3.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Vec3.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		DE4B0A701BC4B7110068B488 = {
+			isa = PBXGroup;
+			children = (
+				DE4B0A821BC4B7830068B488 /* glTest.html */,
+				DE4B0A891BC4BA0A0068B488 /* GameMain.js */,
+				DE435E781BD5E033002A1F8F /* Model.js */,
+				DE4B0A831BC4B7830068B488 /* ModelLoader.js */,
+				DE435E7A1BD5F24C002A1F8F /* Texture.js */,
+				DE4B0A7F1BC4B7830068B488 /* BufferObject.js */,
+				DE4B0A861BC4B7830068B488 /* Shader.js */,
+				DE84945E1BCD597F004A1650 /* Camera.js */,
+				DE84945B1BCC9133004A1650 /* Mat4.js */,
+				DE84945F1BCDE6A8004A1650 /* Vec3.js */,
+				DE4B0A851BC4B7830068B488 /* shader */,
+				DE4B0A871BC4B8E90068B488 /* model */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		DE4B0A711BC4B7110068B488 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = DE4B0A741BC4B7110068B488 /* Build configuration list for PBXProject "WebGL_Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE4B0A701BC4B7110068B488;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		DE4B0A751BC4B7110068B488 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		DE4B0A761BC4B7110068B488 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE4B0A741BC4B7110068B488 /* Build configuration list for PBXProject "WebGL_Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE4B0A751BC4B7110068B488 /* Debug */,
+				DE4B0A761BC4B7110068B488 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE4B0A711BC4B7110068B488 /* Project object */;
+}
