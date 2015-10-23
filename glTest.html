@@ -51,18 +51,29 @@
         camera.perspective(45, canvas.width / canvas.height, 0.1, 1000.0);
 		
 		var scene = new GameMain();
-		
-		// メインループ開始
-		setInterval(main, 1000 / 30);
+        
+        // FPS管理用
+        var dateObj = new Date();
+        var FPS = 1000 / 30;  // フレームレート
+        var time;             // 時間格納用
+        var deltaTime = 0;    // 1フレームの実行時間
+        
+        // メインループスタート
+        main();
 	   
 	   // メインループ
 	   function main() {
+           time = dateObj.getTime();
+           
 	   		gl.clear(gl.DEPTH_BUFFR_BIT || gl.COLOR_BUFFER_BIT);
 	   		
 	   		scene.update();
 	   		scene.draw();
             
+            gl.flush();
             
+            deltaTime = dateObj.getTime() - time;
+            setTimeout(main, FPS - deltaTime);
 	   	}
         </script>
     </body>
