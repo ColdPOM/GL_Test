@@ -17,12 +17,13 @@ function Mat4() {
 /// [out] array 配列に変換された行列
 // ------------------------------------------------------
 Mat4.prototype.toArray = function() {
-    var array = [
-                 this.m11, this.m21, this.m31, this.m41,
-                 this.m12, this.m22, this.m32, this.m42,
-                 this.m13, this.m23, this.m33, this.m43,
-                 this.m14, this.m24, this.m34, this.m44
-                 ]
+    var array =
+    [
+        this.m11, this.m21, this.m31, this.m41,
+        this.m12, this.m22, this.m32, this.m42,
+        this.m13, this.m23, this.m33, this.m43,
+        this.m14, this.m24, this.m34, this.m44
+    ]
     
     return array;
 }

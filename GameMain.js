@@ -8,8 +8,8 @@
 function GameMain() {
     camera.lookAt(new Vec3(0, 5, 10), new Vec3(0.0, 3.0, 0.0), new Vec3(0.0, 1.0, 0.0));
     
-    this.model = new Model("model/Flareon/Flareon.json");
-    this.model.scale = new Vec3(0.1, 0.1, 0.1);
+    this.model = new Model("model/sample.json");
+    this.model.scale = new Vec3(1.0, 1.0, 1.0);
 }
 
 
@@ -18,7 +18,7 @@ function GameMain() {
 // ------------------------------------------------------
 GameMain.prototype.update = function() {
     this.model.update();
-    this.model.rot.y += 2;
+    this.model.rot.y += 1;
 }
 
 

@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <title>WebGL TEST</title> 
+        <title>WebGL TEST</title>
         
         <!-- スクリプトの読み込み -->
         <script type="text/javascript" src="GameMain.js"></script>
@@ -9,6 +9,7 @@
         <script type="text/javascript" src="BufferObject.js"></script>
         <script type="text/javascript" src="ModelLoader.js"></script>
         <script type="text/javascript" src="Camera.js"></script>
+		<script type="text/javascript" src="Timer.js"></script>
         <script type="text/javascript" src="Mat4.js"></script>
         <script type="text/javascript" src="Vec3.js"></script>
         <script type="text/javascript" src="Model.js"></script>
@@ -54,15 +55,14 @@
         
         // FPS管理用
         var dateObj = new Date();
-        var FPS = 1000 / 30;  // フレームレート
         var time;             // 時間格納用
-        var deltaTime = 0;    // 1フレームの実行時間
+        timer = new Timer();
         
         // メインループスタート
-        main();
+        loop();
 	   
 	   // メインループ
-	   function main() {
+	   function loop() {
            time = dateObj.getTime();
            
 	   		gl.clear(gl.DEPTH_BUFFR_BIT || gl.COLOR_BUFFER_BIT);
@@ -72,8 +72,8 @@
             
             gl.flush();
             
-            deltaTime = dateObj.getTime() - time;
-            setTimeout(main, FPS - deltaTime);
+            timer.deltaTime = dateObj.getTime() - time;
+			window.requestAnimationFrame(loop);
 	   	}
         </script>
     </body>

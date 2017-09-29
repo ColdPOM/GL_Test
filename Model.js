@@ -116,7 +116,6 @@ Model.prototype.draw = function() {
         this.shader.uniformMatrix4fv("mvpMatrix", mat.toArray());
         this.shader.uniformMatrix4fv("modelMatrix", modelMat.toArray());
         this.shader.uniform1f("Texture", 0);
-        
         // モデルの描画
         gl.drawElements(gl.TRIANGLES, this.modelData.BodyParts[i].SampleNumber, gl.UNSIGNED_SHORT, beginIndex*2);
         
