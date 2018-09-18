@@ -5,7 +5,7 @@
 // ------------------------------------------------------
 /// コンストラクタ
 // ------------------------------------------------------
-function Mat4() {
+function Matrix4x4() {
     this.m11; this.m12; this.m13; this.m14;
     this.m21; this.m22; this.m23; this.m24;
     this.m31; this.m32; this.m33; this.m34;
@@ -16,7 +16,7 @@ function Mat4() {
 /// 行列を配列として取得
 /// [out] array 配列に変換された行列
 // ------------------------------------------------------
-Mat4.prototype.toArray = function() {
+Matrix4x4.prototype.toArray = function() {
     var array =
     [
         this.m11, this.m21, this.m31, this.m41,
@@ -31,12 +31,12 @@ Mat4.prototype.toArray = function() {
 
 // ------------------------------------------------------
 /// 行列の足し算
-/// [in] mat1 行列１
-/// [in] mat2 行列２
+/// [param] mat1 行列１
+/// [param] mat2 行列２
 /// [out] mat 計算済み行列
 // ------------------------------------------------------
-Mat4.add = function(mat1, mat2) {
-    var mat = new Mat4;
+Matrix4x4.add = function(mat1, mat2) {
+    var mat = new Matrix4x4;
     
     mat.m11 = mat1.m11 + mat2.m11; mat.m12 = mat1.m12 + mat2.m12; mat.m13 = mat1.m13 + mat2.m13; mat.m14 = mat1.m14 + mat2.m14;
     mat.m21 = mat1.m21 + mat2.m21; mat.m22 = mat1.m22 + mat2.m22; mat.m23 = mat1.m23 + mat2.m23; mat.m24 = mat1.m24 + mat2.m24;
@@ -49,12 +49,12 @@ Mat4.add = function(mat1, mat2) {
 
 // ------------------------------------------------------
 /// 行列の引き算
-/// [in] mat1 行列１
-/// [in] mat2 行列２
+/// [param] mat1 行列１
+/// [param] mat2 行列２
 /// [out] mat 計算済み行列
 // ------------------------------------------------------
-Mat4.subtract = function(mat1, mat2) {
-    var mat = new Mat4;
+Matrix4x4.subtract = function(mat1, mat2) {
+    var mat = new Matrix4x4;
     
     mat.m11 = mat1.m11 - mat2.m11; mat.m12 = mat1.m12 - mat2.m12; mat.m13 = mat1.m13 - mat2.m13; mat.m14 = mat1.m14 - mat2.m14;
     mat.m21 = mat1.m21 - mat2.m21; mat.m22 = mat1.m22 - mat2.m22; mat.m23 = mat1.m23 - mat2.m23; mat.m24 = mat1.m24 - mat2.m24;
@@ -67,12 +67,12 @@ Mat4.subtract = function(mat1, mat2) {
 
 // ------------------------------------------------------
 /// 行列のかけ算
-/// [in] mat1 行列１
-/// [in] mat2 行列２
+/// [param] mat1 行列１
+/// [param] mat2 行列２
 /// [out] mat 計算済み行列
 // ------------------------------------------------------
-Mat4.multiply = function(mat1, mat2) {
-    var mat = new Mat4;
+Matrix4x4.multiply = function(mat1, mat2) {
+    var mat = new Matrix4x4;
     
     mat.m11 = mat1.m11 * mat2.m11 + mat1.m12 * mat2.m21 + mat1.m13 * mat2.m31 + mat1.m14 * mat2.m41;
     mat.m12 = mat1.m11 * mat2.m12 + mat1.m12 * mat2.m22 + mat1.m13 * mat2.m32 + mat1.m14 * mat2.m42;
@@ -102,8 +102,8 @@ Mat4.multiply = function(mat1, mat2) {
 /// 単位行列を返す関数
 /// [out] mat 単位行列
 // ------------------------------------------------------
-Mat4.identity = function(){
-    var mat = new Mat4;
+Matrix4x4.identity = function(){
+    var mat = new Matrix4x4;
     
     mat.m11 = 1; mat.m12 = 0; mat.m13 = 0; mat.m14 = 0;
     mat.m21 = 0; mat.m22 = 1; mat.m23 = 0; mat.m24 = 0;
@@ -118,8 +118,8 @@ Mat4.identity = function(){
 /// 移動行列を返す関数
 /// [out] mat 移動行列
 // ------------------------------------------------------
-Mat4.translate = function(vec){
-    var mat = new Mat4;
+Matrix4x4.translate = function(vec){
+    var mat = new Matrix4x4;
     
     mat.m11 = 1; mat.m12 = 0; mat.m13 = 0; mat.m14 = vec.x;
     mat.m21 = 0; mat.m22 = 1; mat.m23 = 0; mat.m24 = vec.y;
@@ -132,11 +132,11 @@ Mat4.translate = function(vec){
 
 // ------------------------------------------------------
 /// X軸の回転行列を返す関数
-/// [in] value 回転角度
+/// [param] value 回転角度
 /// [out] mat 回転行列
 // ------------------------------------------------------
-Mat4.rotateX = function(value) {
-    var mat = new Mat4;
+Matrix4x4.rotateX = function(value) {
+    var mat = new Matrix4x4;
     var rad = value / 180 * Math.PI;
     
     mat.m11 = 1; mat.m12 = 0; mat.m13 = 0; mat.m14 = 0;
@@ -150,11 +150,11 @@ Mat4.rotateX = function(value) {
 
 // ------------------------------------------------------
 /// Y軸の回転行列を返す関数
-/// [in] value 回転角度
+/// [param] value 回転角度
 /// [out] mat 回転行列
 // ------------------------------------------------------
-Mat4.rotateY = function(value) {
-    var mat = new Mat4;
+Matrix4x4.rotateY = function(value) {
+    var mat = new Matrix4x4;
     var rad = value / 180 * Math.PI;
     
     mat.m11 = Math.cos(rad); mat.m12 = 0; mat.m13 = Math.sin(rad); mat.m14 = 0;
@@ -168,11 +168,11 @@ Mat4.rotateY = function(value) {
 
 // ------------------------------------------------------
 /// Z軸の回転行列を返す関数
-/// [in] value 回転角度
+/// [param] value 回転角度
 /// [out] mat 回転行列
 // ------------------------------------------------------
-Mat4.rotateZ = function(value) {
-    var mat = new Mat4;
+Matrix4x4.rotateZ = function(value) {
+    var mat = new Matrix4x4;
     var rad = value / 180 * Math.PI;
     
     mat.m11 = Math.cos(rad); mat.m12 = -Math.sin(rad); mat.m13 = 0; mat.m14 = 0;
@@ -186,14 +186,14 @@ Mat4.rotateZ = function(value) {
 
 // ------------------------------------------------------
 /// 回転行列を返す関数
-/// [in] rotAxis 軸ごとの回転角度
+/// [param] rotAxis 軸ごとの回転角度
 /// [out] mat 回転行列
 // ------------------------------------------------------
-Mat4.rotate = function(axis) {
+Matrix4x4.rotate = function(axis) {
 
-    var mat = Mat4.rotateX(axis.x);
-    mat = Mat4.multiply(mat, Mat4.rotateY(axis.y));
-    mat = Mat4.multiply(mat, Mat4.rotateZ(axis.z));
+    var mat = Matrix4x4.rotateX(axis.x);
+    mat = Matrix4x4.multiply(mat, Matrix4x4.rotateY(axis.y));
+    mat = Matrix4x4.multiply(mat, Matrix4x4.rotateZ(axis.z));
     
     return mat;
 }
@@ -201,11 +201,11 @@ Mat4.rotate = function(axis) {
 
 // ------------------------------------------------------
 /// スケール行列を返す関数
-/// [in] scale 拡大率（Vec3オブジェクトかnumberオブジェクト）
+/// [param] scale 拡大率（Vector3オブジェクトかnumberオブジェクト）
 /// [out] mat スケーリング後の行列
 // ------------------------------------------------------
-Mat4.scale = function(scale) {
-    var mat = new Mat4;
+Matrix4x4.scale = function(scale) {
+    var mat = new Matrix4x4;
     
     mat.m11 = scale.x; mat.m12 = 0; mat.m13 = 0; mat.m14 = 0;
     mat.m21 = 0; mat.m22 = scale.y; mat.m23 = 0; mat.m24 = 0;

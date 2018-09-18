@@ -4,11 +4,11 @@
 
 // ------------------------------------------------------
 /// コンストラクタ
-/// [in] x X座標の値
-/// [in] y Y座標の値
-/// [in] z Z座標の値
+/// [param] x X座標の値
+/// [param] y Y座標の値
+/// [param] z Z座標の値
 // ------------------------------------------------------
-function Vec3(x, y, z)
+function Vector3(x, y, z)
 {
     this.x = x;
     this.y = y;
@@ -20,7 +20,7 @@ function Vec3(x, y, z)
 /// ベクトルを配列として取得
 /// [return] array 配列化されたベクトル
 // ------------------------------------------------------
-Vec3.prototype.toArray = function()
+Vector3.prototype.toArray = function()
 {
     var array = [this.x, this.y, this.z];
     
@@ -32,7 +32,7 @@ Vec3.prototype.toArray = function()
 /// ベクトルの長さ
 /// [return] length ベクトルの長さ
 // ------------------------------------------------------
-Vec3.prototype.length = function()
+Vector3.prototype.length = function()
 {
     var length = Math.sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
     
@@ -42,7 +42,7 @@ Vec3.prototype.length = function()
 // ------------------------------------------------------
 /// 正規化する
 // ------------------------------------------------------
-Vec3.prototype.normalize = function()
+Vector3.prototype.normalize = function()
 {
     if(this.length() == 0) return;
     
@@ -56,11 +56,11 @@ Vec3.prototype.normalize = function()
 /// 正規化ベクトルを返す関数 ※元の値は変わらない
 /// [return] vec 正規化済ベクトル
 // ------------------------------------------------------
-Vec3.prototype.normalized = function()
+Vector3.prototype.normalized = function()
 {
     if(this.length() == 0) return;
     
-    var vec = new Vec3();
+    var vec = new Vector3();
     
     vec.x = this.x / this.length();
     vec.y = this.y / this.length();
@@ -76,9 +76,9 @@ Vec3.prototype.normalized = function()
 /// [param] vec2 ベクトル２
 /// [return] vec 計算済みベクトル
 // ------------------------------------------------------
-Vec3.add = function(vec1, vec2)
+Vector3.add = function(vec1, vec2)
 {
-    var vec = new Vec3;
+    var vec = new Vector3;
     
     vec.x = vec1.x + vec2.x;
     vec.y = vec1.y + vec2.y;
@@ -94,9 +94,9 @@ Vec3.add = function(vec1, vec2)
 /// [param] vec2 ベクトル２
 /// [return] vec 計算済みベクトル
 // ------------------------------------------------------
-Vec3.subtract = function(vec1, vec2)
+Vector3.subtract = function(vec1, vec2)
 {
-    var vec = new Vec3;
+    var vec = new Vector3;
     
     vec.x = vec1.x - vec2.x;
     vec.y = vec1.y - vec2.y;
@@ -112,7 +112,7 @@ Vec3.subtract = function(vec1, vec2)
 /// [param] vec2 ベクトル２
 /// [return] value スカラー値
 // ------------------------------------------------------
-Vec3.dot = function(vec1, vec2)
+Vector3.dot = function(vec1, vec2)
 {
     var value = vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
     
@@ -126,9 +126,9 @@ Vec3.dot = function(vec1, vec2)
 /// [param] vec2 ベクトル２
 /// [return] normal ２つのベクトルに垂直なベクトル
 // ------------------------------------------------------
-Vec3.cross = function(vec1, vec2)
+Vector3.cross = function(vec1, vec2)
 {
-    var normal = new Vec3;
+    var normal = new Vector3;
     
     normal.x = vec1.y * vec2.z - vec1.z * vec2.y;
     normal.y = vec1.z * vec2.x - vec1.x * vec2.z;

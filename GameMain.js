@@ -6,10 +6,10 @@
 /// コンストラクタ
 // ------------------------------------------------------
 function GameMain() {
-    camera.lookAt(new Vec3(0, 5, 10), new Vec3(0.0, 3.0, 0.0), new Vec3(0.0, 1.0, 0.0));
+    camera.lookAt(new Vector3(0, 5, 10), new Vector3(0.0, 3.0, 0.0), new Vector3(0.0, 1.0, 0.0));
     
     this.model = new Model("model/sample.json");
-    this.model.scale = new Vec3(1.0, 1.0, 1.0);
+    this.model.scale = new Vector3(1.0, 1.0, 1.0);
 }
 
 

@@ -4,12 +4,12 @@
 
 // ------------------------------------------------------
 /// コンストラクタ
-/// [in] url モデルファイルのURL
+/// [param] url モデルファイルのURL
 // ------------------------------------------------------
 function Model(url) {
-    this.pos = new Vec3(0.0, 0.0, 0.0);    // 座標
-    this.rot = new Vec3(0.0, 0.0, 180.0);  // 回転値
-    this.scale = new Vec3(1.0, 1.0, 1.0);  // 拡大率
+    this.pos = new Vector3(0.0, 0.0, 0.0);    // 座標
+    this.rot = new Vector3(0.0, 0.0, 180.0);  // 回転値
+    this.scale = new Vector3(1.0, 1.0, 1.0);  // 拡大率
     
     this.loadComp = 0;  // 読み込み完了フラグ
     
@@ -81,13 +81,13 @@ Model.prototype.draw = function() {
     if(!this.loadComp) return;
     
     // 行列の計算
-    var mat = Mat4.identity();
-    mat = Mat4.multiply(mat, camera.projectionMatrix);
-    mat = Mat4.multiply(mat, camera.viewMatrix);
-    var modelMat = Mat4.multiply(Mat4.translate(this.pos), Mat4.rotate(this.rot));
-    modelMat = Mat4.multiply(modelMat, Mat4.scale(this.scale));
+    var mat = Matrix4x4.identity();
+    mat = Matrix4x4.multiply(mat, camera.projectionMatrix);
+    mat = Matrix4x4.multiply(mat, camera.viewMatrix);
+    var modelMat = Matrix4x4.multiply(Matrix4x4.translate(this.pos), Matrix4x4.rotate(this.rot));
+    modelMat = Matrix4x4.multiply(modelMat, Matrix4x4.scale(this.scale));
     
-    mat = Mat4.multiply(mat, modelMat);
+    mat = Matrix4x4.multiply(mat, modelMat);
     
     // シェーダーを有効化
     this.shader.begin();
@@ -115,7 +115,7 @@ Model.prototype.draw = function() {
         // ユニフォーム変数に値を送る
         this.shader.uniformMatrix4fv("mvpMatrix", mat.toArray());
         this.shader.uniformMatrix4fv("modelMatrix", modelMat.toArray());
-        this.shader.uniform1f("Texture", 0);
+        this.shader.uniform1i("Texture", 0);
         // モデルの描画
         gl.drawElements(gl.TRIANGLES, this.modelData.BodyParts[i].SampleNumber, gl.UNSIGNED_SHORT, beginIndex*2);
         

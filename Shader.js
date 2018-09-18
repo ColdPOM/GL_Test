@@ -20,8 +20,8 @@ Shader.prototype.createProgram = function() {
 
 // ------------------------------------------------------
 /// シェーダーを読み込みアタッチする
-/// [in] url シェーダーファイルのURL
-/// [in] type シェーダーの種類
+/// [param] url シェーダーファイルのURL
+/// [param] type シェーダーの種類
 // ------------------------------------------------------
 Shader.prototype.loadShader = function(url, type) {
 	var shaderObj;
@@ -42,7 +42,7 @@ Shader.prototype.loadShader = function(url, type) {
 	}
 	
 	// シェーダーソースをシェーダーオブジェクトに読み込む
-	gl.shaderSource(shaderObj, this._readShaderFile(url));
+	gl.shaderSource(shaderObj, this.readShaderFile(url));
 
 	// シェーダーをコンパイル
 	gl.compileShader(shaderObj);
@@ -93,7 +93,7 @@ Shader.prototype.getAttribLocation = function(variableName) { return gl.getAttri
 Shader.prototype.uniform1i = function(variableName, value) { gl.uniform1i(gl.getUniformLocation(this.shaderProgram, variableName), value); }
 // Uniform変数にfloat型の値を送る
 Shader.prototype.uniform1f = function(variableName, value) { gl.uniform1f(gl.getUniformLocation(this.shaderProgram, variableName), value); }
-// Uniform変数にMat4型の値を送る
+// Uniform変数にMatrix4x4型の値を送る
 Shader.prototype.uniformMatrix4fv = function(variableName, value) { gl.uniformMatrix4fv(gl.getUniformLocation(this.shaderProgram, variableName), false, value); }
 
 
@@ -103,7 +103,7 @@ Shader.prototype.uniformMatrix4fv = function(variableName, value) { gl.uniformMa
 // ------------------------------------------------------
 /// シェーダーファイルの読み込み
 // ------------------------------------------------------
-Shader.prototype._readShaderFile = function(url) {
+Shader.prototype.readShaderFile = function(url) {
 	var xmlHttp = new XMLHttpRequest();
 	
 	xmlHttp.open("GET", url, false);

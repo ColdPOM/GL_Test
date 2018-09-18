@@ -10,8 +10,8 @@ function BufferObject() {
 
 // ------------------------------------------------------
 /// VBOの生成
-/// [in] data 頂点座標配列
-/// [out] vbo 生成されたVBOを返す
+/// [param] data 頂点座標配列
+/// [return] vbo 生成されたVBOを返す
 // ------------------------------------------------------
 BufferObject.createVBO = function(data){
    var vbo = gl.createBuffer();
@@ -25,8 +25,8 @@ BufferObject.createVBO = function(data){
 
 // ------------------------------------------------------
 /// IBOの生成
-/// [in] data インデックス配列
-/// [out] ibo 生成されたIBOを返す
+/// [param] data インデックス配列
+/// [return] ibo 生成されたIBOを返す
 // ------------------------------------------------------
 BufferObject.createIBO = function(data){
     var ibo = gl.createBuffer();

@@ -11,7 +11,7 @@ function ModelLoader() {
 
 // ------------------------------------------------------
 /// JSONで記述された３Dモデルを読み込む
-/// [in] url モデルのURL
+/// [param] url モデルのURL
 // ------------------------------------------------------
 ModelLoader.loadModel = function (url) {
     var xmlHttp = new XMLHttpRequest();
