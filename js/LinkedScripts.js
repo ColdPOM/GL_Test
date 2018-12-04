@@ -1,9 +1,9 @@
 // ---------------------------------------------------------------------------------
-/// 使用するプログラムファイルのリンク
+/// 菴ｿ逕ｨ縺吶ｋ繧ｹ繧ｯ繝ｪ繝励ヨ縺ｮ繝ｪ繝ｳ繧ｯ
 // ---------------------------------------------------------------------------------
 
 document.write(
 	'<script type="text/javascript" src="lib/Pomlib/PomLib.js"></script>',
-	'<script type="text/javascript" src="scripts/js/Main.js"></script>',
-	'<script type="text/javascript" src="scripts/js/GameMain.js"></script>'
+	'<script type="text/javascript" src="js/Main.js"></script>',
+	'<script type="text/javascript" src="js/GameMain.js"></script>'
 );
